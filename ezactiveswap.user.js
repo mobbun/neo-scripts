@@ -28,7 +28,7 @@
     // for 2020 layout
     if(document.querySelector('#navprofiledropdown__2020')) {
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet") || (document.querySelector('.profile-dropdown-link').textContent.trim());
+        dropdown.value = GM_getValue("activePet");
         dropdown.style.marginLeft = '20px';
         const parent = document.querySelector('.nav-profile-dropdown-clock__2020');
         parent.appendChild(dropdown);
@@ -41,7 +41,7 @@
     // old layout
     else if (document.querySelector('.sidebarHeader.medText')) {
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet") || (document.querySelector('.sidebarHeader.medText b').textContent.trim());
+        dropdown.value = GM_getValue("activePet");
         const parent = document.querySelector('.activePet');
         parent.appendChild(dropdown);
 

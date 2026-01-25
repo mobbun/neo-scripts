@@ -1,14 +1,13 @@
 // ==UserScript==
 // @name         Neopets - Easy Active Swap
 // @version      2026-01-24
-// @description  change active from any page (doesn't work on explore page .....)
+// @description  change active from any page (doesn't work on explore page)
 // @author       m
-// @match        *.neopets.com/*
+// @match        *://*.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
 // @grant        GM_setValue
 // @grant        GM_getValue
 // ==/UserScript==
-
 
 (function() {
     'use strict';
@@ -30,9 +29,7 @@
 
         // additional check to avoid unnecessary writes.
         // dropdown is only rewritten if you have new pets or abandoned pets (expected behavior)
-        if (!petList.match(GM_getValue("pets"))) {
-            GM_setValue("pets", petList);
-        }
+        GM_setValue("pets", petList);
     }
 
     // for 2020 layout

@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Neopets - Easy Active Swap
 // @version      2026-01-24
-// @description  change active from any page (doesn't work on explore page)
-// @author       joonji/m
+// @description  change active from any page
+// @author       joonji
 // @match        *://*.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
 // @grant        GM_setValue

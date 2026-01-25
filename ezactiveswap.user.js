@@ -27,10 +27,8 @@
 
     // for 2020 layout
     if(document.querySelector('#navprofiledropdown__2020')) {
-        const a = document.querySelector('.profile-dropdown-link').textContent.trim();
-        GM_setValue("activePet", a);
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet") || a;
+        dropdown.value = GM_getValue("activePet") || (document.querySelector('.profile-dropdown-link').textContent.trim());
         dropdown.style.marginLeft = '20px';
         const parent = document.querySelector('.nav-profile-dropdown-clock__2020');
         parent.appendChild(dropdown);
@@ -41,11 +39,9 @@
     });
     }
     // old layout
-    else {
-        const a = document.querySelector('.sidebarHeader.medText b').textContent.trim();
-        GM_setValue("activePet", a);
+    else if (document.querySelector('.sidebarHeader.medText')) {
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet") || a;
+        dropdown.value = GM_getValue("activePet") || (document.querySelector('.sidebarHeader.medText b').textContent.trim());
         const parent = document.querySelector('.activePet');
         parent.appendChild(dropdown);
 

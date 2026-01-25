@@ -12,7 +12,6 @@
 (function() {
     'use strict';
 
-
     if(window.location.href.match(/http(s)?:\/\/(www\.)?neopets\.com\/home/i)) {
 
         const elements = document.querySelectorAll('.hp-carousel-pet');
@@ -31,8 +30,7 @@
         const a = document.querySelector('.profile-dropdown-link').textContent.trim();
         GM_setValue("activePet", a);
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet") || "";
-        dropdown.value = a;
+        dropdown.value = GM_getValue("activePet") || a;
         dropdown.style.marginLeft = '20px';
         const parent = document.querySelector('.nav-profile-dropdown-clock__2020');
         parent.appendChild(dropdown);
@@ -47,8 +45,7 @@
         const a = document.querySelector('.sidebarHeader.medText b').textContent.trim();
         GM_setValue("activePet", a);
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet") || "";
-        dropdown.value = a;
+        dropdown.value = GM_getValue("activePet") || a;
         const parent = document.querySelector('.activePet');
         parent.appendChild(dropdown);
 

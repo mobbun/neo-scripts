@@ -14,7 +14,6 @@
 
 
     if(window.location.href.match(/http(s)?:\/\/(www\.)?neopets\.com\/home/i)) {
-        // console.log("this is the home page..");
 
         const elements = document.querySelectorAll('.hp-carousel-pet');
         const x = [];
@@ -23,12 +22,7 @@
             x.push(element.getAttribute('data-name'));
         });
 
-        const petList = [...new Set(x)]; // remove duplicates
-
-        // console.log(petList);
-
-        // additional check to avoid unnecessary writes.
-        // dropdown is only rewritten if you have new pets or abandoned pets (expected behavior)
+        const petList = [...new Set(x)];
         GM_setValue("pets", petList);
     }
 

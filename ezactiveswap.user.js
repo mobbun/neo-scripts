@@ -9,9 +9,6 @@
 // @grant        GM_getValue
 // ==/UserScript==
 
-// null if old layout
-
-
 
 (function() {
     'use strict';

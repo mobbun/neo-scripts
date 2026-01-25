@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Neopets - Easy Active Swap
 // @version      2026-01-24
-// @description  change active from any page
+// @description  change active from any page. petList is taken each time you visit the neopets home -- as long as you visit once you're g2g!
 // @author       joonji
 // @match        *://*.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com

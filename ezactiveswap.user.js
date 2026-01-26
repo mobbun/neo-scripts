@@ -1,18 +1,21 @@
 // ==UserScript==
 // @name         Neopets - Easy Active Swap
 // @version      2026-01-24
-// @description  change active from any page. petList is taken each time you visit the neopets home -- as long as you visit once you're g2g!
-// @author       joonji
-// @match        *://*.neopets.com/*
+// @description  change active from any page. make sure to visit the neopets homepage once to populate the list of your pets , and you're good 2 go :3
+// @author       m
+// @match        *.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
 // @grant        GM_setValue
 // @grant        GM_getValue
 // ==/UserScript==
 
+
 (function() {
     'use strict';
 
+
     if(window.location.href.match(/http(s)?:\/\/(www\.)?neopets\.com\/home/i)) {
+        // console.log("this is the home page..");
 
         const elements = document.querySelectorAll('.hp-carousel-pet');
         const x = [];
@@ -21,14 +24,22 @@
             x.push(element.getAttribute('data-name'));
         });
 
-        const petList = [...new Set(x)];
-        GM_setValue("pets", petList);
+        const petList = [...new Set(x)]; // remove duplicates
+
+        // console.log(petList);
+
+        // additional check to avoid unnecessary writes.
+        // dropdown is only rewritten if you have new pets or abandoned pets (expected behavior)
+        if (!petList.match(GM_getValue("pets"))) {
+            GM_setValue("pets", petList);
+        }
     }
 
     // for 2020 layout
     if(document.querySelector('#navprofiledropdown__2020')) {
+        const a = document.querySelector('.profile-dropdown-link').textContent.trim();
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet");
+        dropdown.value = a;
         dropdown.style.marginLeft = '20px';
         const parent = document.querySelector('.nav-profile-dropdown-clock__2020');
         parent.appendChild(dropdown);
@@ -39,9 +50,10 @@
     });
     }
     // old layout
-    else if (document.querySelector('.sidebarHeader.medText')) {
+    else {
+        const a = document.querySelector('.sidebarHeader.medText b').textContent.trim();
         const dropdown = createDropdownItems();
-        dropdown.value = GM_getValue("activePet");
+        dropdown.value = a;
         const parent = document.querySelector('.activePet');
         parent.appendChild(dropdown);
 
@@ -79,7 +91,6 @@
         })
         .then(response => {
             if (response.ok) {
-                GM_setValue("activePet", petName);
                 location.href = currentPage;
             } else {
                 console.error('Failed to change active pet');

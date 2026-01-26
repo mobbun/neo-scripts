@@ -3,7 +3,7 @@
 // @version      2026-01-24
 // @description  change active from any page. make sure to visit the neopets homepage once to populate the list of your pets , and you're good 2 go :3
 // @author       m
-// @match        *.neopets.com/*
+// @match        *://*.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
 // @grant        GM_setValue
 // @grant        GM_getValue

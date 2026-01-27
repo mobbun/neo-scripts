@@ -15,8 +15,6 @@
 
 
     if(window.location.href.match(/http(s)?:\/\/(www\.)?neopets\.com\/home/i)) {
-        // console.log("this is the home page..");
-
         const elements = document.querySelectorAll('.hp-carousel-pet');
         const x = [];
 

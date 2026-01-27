@@ -15,6 +15,8 @@
 
 
     if(window.location.href.match(/http(s)?:\/\/(www\.)?neopets\.com\/home/i)) {
+        // console.log("this is the home page..");
+
         const elements = document.querySelectorAll('.hp-carousel-pet');
         const x = [];
 
@@ -22,10 +24,10 @@
             x.push(element.getAttribute('data-name'));
         });
 
-        const petList = [...new Set(x)];
-        if (!petList.match(GM_getValue("pets"))) {
-            GM_setValue("pets", petList);
-        }
+        const petList = [...new Set(x)]; // remove duplicates
+
+        //console.log(petList);
+        GM_setValue("pets", petList);
     }
 
     // for 2020 layout
@@ -56,7 +58,8 @@
     });
     }
 
-    
+
+    /* functionz */
     function createDropdownItems() {
         const x = document.createElement('select');
         x.id = 'active-dropdown';

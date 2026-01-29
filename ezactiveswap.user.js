@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Neopets - Easy Active Swap
 // @version      2026-01-24
-// @description  change active from any page. make sure to visit the neopets homepage once to populate the list of your pets , and you're good 2 go :3
+// @description  Change active from any page. Make sure to visit the Neopets homepage to update a list of your pets.
 // @author       m
 // @match        *://*.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com

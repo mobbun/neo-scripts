@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Neopets - Easy Active Swap
-// @version      2026-01-24
-// @description  Change active from any page. Make sure to visit the Neopets homepage to update a list of your pets.
+// @version      2026-03-14
+// @description  change active and visit quickref from any page. make sure to visit the neopets homepage once to populate the list of your pets, and you're good 2 go!
 // @author       m
 // @match        *://*.neopets.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
@@ -38,9 +38,15 @@
         parent.appendChild(dropdown);
 
         dropdown.addEventListener('change', (event) => {
-        const selectedPet = event.target.value;
-        changeActivePet(selectedPet);
-    });
+            const selectedPet = event.target.value;
+            changeActivePet(selectedPet);
+        });
+
+        const refDiv = document.getElementById("navProfilePet__2020");
+        refDiv.style.cursor = 'pointer';
+        refDiv.addEventListener('click', () => {
+            window.location.href = "https://www.neopets.com/quickref.phtml";
+        });
     }
     // old layout
     else {
@@ -51,9 +57,9 @@
         parent.appendChild(dropdown);
 
         dropdown.addEventListener('change', (event) => {
-        const selectedPet = event.target.value;
-        changeActivePet(selectedPet);
-    });
+            const selectedPet = event.target.value;
+            changeActivePet(selectedPet);
+        });
     }
 
 
